@@ -12,6 +12,19 @@
       src="../assets/graduation.png"
     ></v-img>
 
+       <v-card-text>
+      <v-row
+        class="mb-0"
+        justify="space-between"
+      >
+        <v-col class="text-left">
+        <v-img
+           src="../assets/spectroscop_1.jpg"
+        ></v-img>
+        </v-col>
+      </v-row>
+    </v-card-text>
+
     <v-toolbar
       flat
     >
@@ -27,6 +40,16 @@
     
          
     <v-card-text>
+      <v-toolbar
+      flat
+      >
+      <v-toolbar-title>
+        <span class="subheading">Linear scale: </span>
+        
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      
+      </v-toolbar>
        <v-slider
         v-model="linearScale"
         track-color="grey"
@@ -37,10 +60,21 @@
         :thumb-size="24"
         thumb-label="always"
       >
+          
       </v-slider>
        </v-card-text>
 
     <v-card-text>
+        <v-toolbar
+        flat
+        >
+          <v-toolbar-title>
+            <span class="subheading">Circular scale: </span>
+
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+
+        </v-toolbar>
        <v-slider
         v-model="circularScale"
         track-color="grey"
@@ -54,7 +88,7 @@
        
       </v-slider>
     </v-card-text>
-
+ 
     <v-card-text>
       <v-row align="center">
 
@@ -76,6 +110,9 @@
       
     </v-row>
     </v-card-text>
+
+
+    
 
     <v-card-text>
       <v-row
@@ -112,16 +149,23 @@
         always-dirty
         :min="minWl"
         :max="maxWl"
-        :thumb-size="24"
+        :thumb-size="15"
         thumb-label="always"
       >
-       
+          <template v-slot:thumb-label>
+            <v-img width="20px"
+              :z-index="1"
+              src="../assets/Arrow.png"
+            ></v-img>
+            
+          </template>
       </v-slider>
 
       <v-img
       :width="770"
       :height="170"
       :src="gas"
+      style="z-index: -1"
       ></v-img>
     </v-card-text>
 
@@ -134,6 +178,7 @@
     data: () => ({
       gas: null,
       bpm: 0,
+      zIndex: -1,
       linearScale: 6,
       maxLinearScale: 6,
       minLinearScale: 1,
@@ -149,7 +194,6 @@
       specters: [
         {name:"Hydrogen",icon:"https://i.imgur.com/WuqRrD7.png"},
         {name:"Neon",icon:"https://i.imgur.com/UMplp82.png"},
-        {name:"Helium",icon:"https://i.imgur.com/b0dnEv9.png"}
       ]
     }),
 
