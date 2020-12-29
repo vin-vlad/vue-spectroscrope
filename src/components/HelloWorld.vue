@@ -149,7 +149,7 @@
         always-dirty
         :min="minWl"
         :max="maxWl"
-        :thumb-size="15"
+        :thumb-size="1"
         thumb-label="always"
       >
           <template v-slot:thumb-label>
