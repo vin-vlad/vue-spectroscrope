@@ -91,7 +91,7 @@
  
     <v-card-text>
       <v-row align="center">
-
+      <vue-player src="../assets/spectroscope.mp4" poster="../assets/spectroscope_1.jpg" title="Spectroscope"></vue-player>    
       <v-col
         class="d-flex"
         cols="12"
@@ -173,8 +173,12 @@
   </v-card>
 </template>
 <script>
+  import vuePlayer  from  '@algoz098/vue-player'  
   export default {
     name: "HelloWorld",
+    components: {
+			vuePlayer
+		},
     data: () => ({
       gas: null,
       bpm: 0,
