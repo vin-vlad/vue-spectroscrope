@@ -173,12 +173,9 @@
   </v-card>
 </template>
 <script>
-  import vuePlayer  from  '@algoz098/vue-player'  
+  //import vuePlayer  from  '@algoz098/vue-player'  
   export default {
     name: "HelloWorld",
-    components: {
-			vuePlayer
-		},
     data: () => ({
       gas: null,
       bpm: 0,
