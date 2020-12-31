@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="mx-auto"
-    max-width="800"
+    max-width="1200"
     max-height="800"
     elevation="10"
   >
@@ -12,16 +12,46 @@
       src="../assets/graduation.png"
     ></v-img>
 
-       <v-card-text>
+    <v-card-text>
+      <v-row align="center">
+       
+      <v-col
+        class="d-flex"
+        cols="12"
+        sm="6"
+      >
+        <v-select
+          v-model="gas"
+          :items="specters"
+          item-text="name"
+          item-value="media"
+          label="Select gas..."
+          outlined
+        ></v-select>
+      </v-col>
+
+      
+    </v-row>
+    </v-card-text>
+    <v-card-text v-if="gas">
       <v-row
-        class="mb-0"
-        justify="space-between"
+        style="display: flex"
+        justify="space-around"
       >
         <v-col class="text-left">
-        <v-img
-           src="../assets/spectroscop_1.jpg"
-        ></v-img>
-        </v-col>
+          <v-img
+            width="650px"
+            height="150px"
+            src="../assets/with-bulb.gif"
+          ></v-img>
+          </v-col>
+        <v-col class="text-left">
+          <v-img
+          width="200px"
+          :src="gas.eye"
+          
+          ></v-img>
+        </v-col> 
       </v-row>
     </v-card-text>
 
@@ -89,28 +119,7 @@
       </v-slider>
     </v-card-text>
  
-    <v-card-text>
-      <v-row align="center">
-       
-      <v-col
-        class="d-flex"
-        cols="12"
-        sm="6"
-      >
-        <v-select
-          v-model="gas"
-          :items="specters"
-          item-text="name"
-          item-value="icon"
-          label="Select gas..."
-          outlined
-        ></v-select>
-      </v-col>
-
-      
-    </v-row>
-    </v-card-text>
-
+    
 
     
 
@@ -161,10 +170,10 @@
           </template>
       </v-slider>
 
-      <v-img
-      :width="770"
+      <v-img v-if="gas"
+      :width="1200"
       :height="170"
-      :src="gas"
+      :src="gas.icon"
       style="z-index: -1"
       ></v-img>
     </v-card-text>
@@ -193,8 +202,8 @@
       spectroscopeScale: 3,
       imgSrc:"https://i.imgur.com/b0dnEv9.png",
       specters: [
-        {name:"Hydrogen",icon:"https://i.imgur.com/WuqRrD7.png"},
-        {name:"Neon",icon:"https://i.imgur.com/UMplp82.png"},
+        {name:"Hydrogen", media:{icon:"https://i.imgur.com/WuqRrD7.png",eye:"https://i.imgur.com/beDbqsd.png"}},
+        {name:"Neon", media:{icon:"https://i.imgur.com/UMplp82.png",eye:"https://i.imgur.com/FBJvbr3.png"}},
       ]
     }),
 
@@ -230,6 +239,15 @@
       toggle () {
         this.isPlaying = !this.isPlaying
       },
+      powerSwitch() {
+        
+        (".power").click(function(){
+          ("body").toggleClass("active");
+        });  
+      
+      }
     },
   }
 </script>
+
+
