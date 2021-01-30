@@ -1,25 +1,25 @@
 <template>
   <v-card
     class="mx-auto"
-    max-width="1200"
-    max-height="800"
-    elevation="10"
+    max-width="100%"
+    max-height="1450"
+    
   >
-    <v-img
+  <v-card-text>
+    <v-row align="center">
+      <v-col
+      class="d-flex"
+        cols="12"
+        sm="6">
+        <v-img
       src="../assets/Spectrograph.png"
     ></v-img>
-    <v-img
-      src="../assets/graduation.png"
-    ></v-img>
-
-    <v-card-text>
-      <v-row align="center">
-       
+    
+      </v-col>
       <v-col
-        class="d-flex"
-        cols="12"
-        sm="6"
-      >
+        
+        cols="1"
+        sm="6">
         <v-select
           v-model="gas"
           :items="specters"
@@ -28,101 +28,124 @@
           label="Select gas..."
           outlined
         ></v-select>
-      </v-col>
-
-      
-    </v-row>
-    </v-card-text>
-    <v-card-text v-if="gas">
-      <v-row
-        style="display: flex"
-        justify="space-around"
-      >
-        <v-col class="text-left">
-          <v-img
+        <v-card v-if="gas" class="d-flex">
+        <v-img
             width="650px"
             height="150px"
             src="../assets/with-bulb.gif"
           ></v-img>
-          </v-col>
-        <v-col class="text-left">
           <v-img
           width="200px"
           :src="gas.eye"
           
           ></v-img>
-        </v-col> 
-      </v-row>
-    </v-card-text>
+          </v-card>
+      </v-col>
+    </v-row>
+  </v-card-text>
 
-    <v-toolbar
-      flat
+  <v-card-text>
+    <v-row align="center">
+       
+    <v-col
+      class="d-flex"
+      cols="12"
+      sm="6"
     >
-      <v-toolbar-title>
-        <span class="subheading">Spectroscope value: </span> <span  class="display-1 font-weight-light"
-            v-text="calculateScale"
-          ></span>
-        
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      
-    </v-toolbar>
-    
-         
-    <v-card-text>
+        <v-img
+      src="../assets/graduation.png"
+      ></v-img>
+      </v-col>
+    <v-col
+      class="d-flex"
+      cols="12"
+      sm="6"
+    >
+        <v-card-text>
       <v-toolbar
-      flat
-      >
-      <v-toolbar-title>
-        <span class="subheading">Linear scale: </span>
         
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      
-      </v-toolbar>
-       <v-slider
-        v-model="linearScale"
-        track-color="grey"
-        always-dirty
-        step="1"
-        :min="minLinearScale"
-        :max="maxLinearScale"
-        :thumb-size="24"
-        thumb-label="always"
-      >
-          
-      </v-slider>
+        flat
+        >
+          <v-toolbar-title>
+            <span class="subheading">Linear scale: </span>
+            
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-row align="center" height="200px" >
+              <v-btn
+              class="mx-2"
+              fab
+              dark
+              small
+              @click="decrementLinear"
+              color="primary"
+            >
+              <v-icon dark>
+                mdi-chevron-down
+              </v-icon>
+            </v-btn>
+            
+            <span class="subheading" v-text="linearScale"></span>
+            <v-btn
+              class="mx-2"
+              fab
+              dark
+              small
+              @click="incrementLinear"
+              color="primary"
+            >
+              <v-icon dark>
+                mdi-chevron-up
+              </v-icon>
+            </v-btn>
+            </v-row>
+        </v-toolbar>
        </v-card-text>
 
     <v-card-text>
         <v-toolbar
+        
         flat
         >
           <v-toolbar-title>
             <span class="subheading">Circular scale: </span>
-
+            
           </v-toolbar-title>
           <v-spacer></v-spacer>
-
+          <v-row align="center" height="200px" >
+              <v-btn
+              class="mx-2"
+              fab
+              dark
+              small
+              @click="decrementRadial"
+              color="primary"
+            >
+              <v-icon dark>
+                mdi-chevron-down
+              </v-icon>
+            </v-btn>
+            
+            <span class="subheading" v-text="circularScale"></span>
+            <v-btn
+              class="mx-2"
+              fab
+              dark
+              small
+              @click="incrementRadial"
+              color="primary"
+            >
+              <v-icon dark>
+                mdi-chevron-up
+              </v-icon>
+            </v-btn>
+            </v-row>
         </v-toolbar>
-       <v-slider
-        v-model="circularScale"
-        track-color="grey"
-        always-dirty
-        step="1"
-        :min="minCircularScale"
-        :max="maxCircularScale"
-        :thumb-size="24"
-        thumb-label="always"
-      >
        
-      </v-slider>
     </v-card-text>
- 
-    
-
-    
-
+    </v-col>
+    </v-row>
+    </v-card-text>
     <v-card-text>
       <v-row
         class="mb-4"
@@ -171,7 +194,7 @@
       </v-slider>
 
       <v-img v-if="gas"
-      :width="1200"
+      width="100%"
       :height="170"
       :src="gas.icon"
       style="z-index: -1"
@@ -202,8 +225,8 @@
       spectroscopeScale: 3,
       imgSrc:"https://i.imgur.com/b0dnEv9.png",
       specters: [
-        {name:"Hydrogen", media:{icon:"https://i.imgur.com/WuqRrD7.png",eye:"https://i.imgur.com/beDbqsd.png"}},
-        {name:"Neon", media:{icon:"https://i.imgur.com/UMplp82.png",eye:"https://i.imgur.com/FBJvbr3.png"}},
+        {name:"Hydrogen", media:{icon:"https://i.imgur.com/WuqRrD7.png",eye:"https://i.imgur.com/y0JdoIU.png"}},
+        {name:"Neon", media:{icon:"https://i.imgur.com/UMplp82.png",eye:"https://i.imgur.com/FjdMk5s.png"}},
       ]
     }),
 
@@ -235,6 +258,24 @@
       },
       increment () {
         this.bpm++
+      },
+      incrementLinear(){
+        if(this.linearScale<this.maxLinearScale)
+        {
+            this.linearScale++;
+        }
+      },
+      decrementLinear(){
+        if(this.linearScale>this.minLinearScale)
+        this.linearScale--;
+      },
+      incrementRadial(){
+        if(this.circularScale<this.maxCircularScale)
+        this.circularScale++;
+      },
+      decrementRadial(){
+        if(this.circularScale>this.minCircularScale)
+        this.circularScale--;
       },
       toggle () {
         this.isPlaying = !this.isPlaying

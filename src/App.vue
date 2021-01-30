@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-       <span>Spectroscope</span>
+      <div class="align-center">
+       <span>INVESTIGATION OF THE EMISSION SPECTRA USING A SPECTROSCOPE</span>
       </div>
     </v-app-bar>
 
