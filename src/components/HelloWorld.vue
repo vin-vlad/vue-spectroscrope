@@ -219,14 +219,14 @@
       minCircularScale: 0,
       maxCircularScale: 50,
       minWl: 380,
-      maxWl: 750,
+      maxWl: 700,
       interval: null,
       isPlaying: false,
       spectroscopeScale: 3,
       imgSrc:"https://i.imgur.com/b0dnEv9.png",
       specters: [
         {name:"Hydrogen", media:{icon:"https://i.imgur.com/WuqRrD7.png",eye:"https://i.imgur.com/y0JdoIU.png"}},
-        {name:"Neon", media:{icon:"https://i.imgur.com/UMplp82.png",eye:"https://i.imgur.com/FjdMk5s.png"}},
+        {name:"Neon", media:{icon:"https://i.imgur.com/l3AN8ff.png",eye:"https://i.imgur.com/FjdMk5s.png"}},
       ]
     }),
 
