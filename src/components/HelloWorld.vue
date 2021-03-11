@@ -226,7 +226,7 @@
       imgSrc:"https://i.imgur.com/b0dnEv9.png",
       specters: [
         {name:"Hydrogen", media:{icon:"https://i.imgur.com/WuqRrD7.png",eye:"https://i.imgur.com/y0JdoIU.png"}},
-        {name:"Neon", media:{icon:"https://i.imgur.com/l3AN8ff.png",eye:"https://i.imgur.com/FjdMk5s.png"}},
+        {name:"Neon", media:{icon:"https://i.imgur.com/lzhriFH.jpg",eye:"https://i.imgur.com/FjdMk5s.png"}},
       ]
     }),
 
