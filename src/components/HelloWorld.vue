@@ -152,10 +152,7 @@
         justify="space-between"
       >
         <v-col class="text-left">
-          <span
-            class="display-3 font-weight-light"
-            v-text="calculateWl"
-          ></span>
+          
           <span class="subheading font-weight-light mr-1">nm</span>
           <v-fade-transition>
             <v-avatar
@@ -195,7 +192,7 @@
 
       <v-img v-if="gas"
       width="100%"
-      :height="170"
+      
       :src="gas.icon"
       style="z-index: -1"
       ></v-img>
@@ -226,7 +223,7 @@
       imgSrc:"https://i.imgur.com/b0dnEv9.png",
       specters: [
         {name:"Hydrogen", media:{icon:"https://i.imgur.com/WuqRrD7.png",eye:"https://i.imgur.com/y0JdoIU.png"}},
-        {name:"Neon", media:{icon:"https://i.imgur.com/lzhriFH.jpg",eye:"https://i.imgur.com/FjdMk5s.png"}},
+        {name:"Neon", media:{icon:"https://i.imgur.com/yxaZSqm.jpg",eye:"https://i.imgur.com/FjdMk5s.png"}},
       ]
     }),
 
